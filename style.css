@@ -4,7 +4,7 @@
         --light-green: #3dd705;
         --red: #e92929;
         --github-icon: url(/assets/github.svg);
-        --linkedin: url(/assets/linkedin.svg);
+        --linkedin-icon: url(/assets/linkedin.svg);
 }
 
 * {
@@ -292,8 +292,36 @@ footer {
     text-align: center;
     padding: 4rem 0 2rem;
     color: var(--dark-blue);
-    
-    opacity: 0.6;
+    opacity: 0.8;
+}
+
+a.github {
+    background-image: var(--github-icon);
+}
+
+a.linkedin {
+    background-image: var(--linkedin-icon);
+
+}
+
+.links a {
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 1rem auto;
+    padding: 3rem 1.5rem 0;
+    background-size: 3rem 3rem;
+    display: inline-block;
+    color: #ffffff;
+
+    transition: opacity .3s;
+}
+
+.links a:hover{
+    opacity: 0.4;
+}
+
+.links a {
+    margin: 0.8rem .1rem .1.5rem;
 }
 
 /* Responsive ===================*/
