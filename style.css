@@ -3,8 +3,19 @@
         --green: #49AA26;
         --light-green: #3dd705;
         --red: #e92929;
+        --light-color-base: #FFF;
+        --background-color-header: #8cc530;
+        --backgroundcolorcards: #FFFFFF;
+        --backgroundcolor: #F0F2F5;
+        --backgroundcolortable: #fff;
+        --backgroundcolormodal: #f0f2f5;
+        --textcolortable:  #969cb3;
+        --cardtotal: #49aa26;
+        --inputbackgroundcolor: #ffffff;
         --github-icon: url(/assets/github.svg);
         --linkedin-icon: url(/assets/linkedin.svg);
+
+        
 }
 
 * {
@@ -13,14 +24,94 @@
     box-sizing: border-box;
 }
 html {
-    font-size: 93.75%;
+    height: 100%;
+    font-family: 'Montserrat';
+
+    --bg: #FCFCFC;
+    --bg-panel: #EBEBEB;
+    --color-headings: #0077FF;
+    --color-text: #333333;
 }
 
 body {
-    background: #f0f2f5;
+    background: var(--backgroundcolor);
     font-family: 'Poppins', sans-serif
 }
 
+
+/*Dark theme*/
+/* Theme Switcher ==================================== */
+.themetoggler {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 4rem;
+    padding-bottom: 2px;
+}
+
+body.dark {
+    --dark-blue: #ffffff;
+    --green: #49aa26;
+    --light-green: #3dd705;
+    --red: #e92929;
+    --light-color-base: #FFF;
+    --background-color-header: #000000;
+    --backgroundcolorcards: #1a1616;
+    --backgroundcolor: #292C35;
+    --backgroundcolortable: #1a1616;;
+    --backgroundcolormodal: #18181d;
+    --textcolortable:  #FFF;
+    --cardtotal: #1a1616;
+    --inputbackgroundcolor: #282829;
+
+    transition: 0.2s linear
+}
+
+body.light {
+    transition: 0.2s linear
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+	background-color: var(--background-color-header);
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	position: relative;
+	height: 26px;
+	width: 50px;
+	transform: scale(1.5);
+}
+
+.label .ball {
+	background-color: #fff;
+	border-radius: 50%;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	height: 22px;
+	width: 22px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+.fa-moon {
+	color: #363f5f;
+}
+
+.fa-sun {
+	color: #f39c12;
+}
 
 /*visivel somente para leitores de busca*/
 .sr-only {
@@ -107,7 +198,7 @@ button:hover {
 
 /* Header ==================*/
 header {
-    background: #2D4A22;
+    background-color: var(--background-color-header);
     padding: 2rem 0 10rem;
     text-align: center;
 }
@@ -128,7 +219,7 @@ header {
 
 /* Cards */
 .card {
-    background: white;
+    background-color: var(--backgroundcolorcards);
     padding: 1.5rem 2rem;
     border-radius: 0.25rem;
 
@@ -154,8 +245,18 @@ header {
 }
 
 .card.total {
-    background: var(--green);
+    background: var(--cardtotal);
     color: white;
+}
+
+.negative {
+    background: var(--red);
+}
+
+.card.total span,
+.card.total p{
+
+    color: #fff ;
 }
 
 
@@ -170,6 +271,7 @@ header {
     border-spacing: 0rem 0.5rem;
     color: #969cb3;
 }
+
 table thead tr th:first-child, 
 table tbody tr td:first-child {
     border-radius: 0.25rem 0 0 0.25rem;
@@ -197,7 +299,7 @@ table tbody tr:hover {
 }
 
 table tbody td {
-    background: white;
+    background: var(--backgroundcolortable);   
     padding: 1rem 2rem;
 }
 
