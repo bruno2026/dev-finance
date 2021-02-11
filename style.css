@@ -4,7 +4,7 @@
         --light-green: #3dd705;
         --red: #e92929;
         --light-color-base: #FFF;
-        --background-color-header: #8cc530;
+        --background-color-header: #2D4A22;
         --backgroundcolorcards: #FFFFFF;
         --backgroundcolor: #F0F2F5;
         --backgroundcolortable: #fff;
@@ -14,8 +14,6 @@
         --inputbackgroundcolor: #ffffff;
         --github-icon: url(/assets/github.svg);
         --linkedin-icon: url(/assets/linkedin.svg);
-
-        
 }
 
 * {
@@ -106,7 +104,7 @@ body.light {
 }
 
 .fa-moon {
-	color: #363f5f;
+	color: #0a0a0a;
 }
 
 .fa-sun {
