@@ -12,6 +12,7 @@
         --textcolortable:  #969cb3;
         --cardtotal: #49aa26;
         --inputbackgroundcolor: #ffffff;
+        --edit: #E83F5B;
         --github-icon: url(/assets/github.svg);
         --linkedin-icon: url(/assets/linkedin.svg);
 }
@@ -257,6 +258,10 @@ header {
     color: #fff ;
 }
 
+td img {
+    cursor: pointer;
+}
+
 
 /* Table ============================*/
 #transaction {
@@ -311,6 +316,11 @@ td.income {
 
 td.expense {
     color: var(--red);
+}
+
+.fa-pencil-alt {
+    color: var(--edit);
+    cursor: pointer;
 }
 
 /* Modal ===================*/

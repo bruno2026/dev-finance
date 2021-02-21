@@ -1,4 +1,5 @@
 const Modal = {
+    //editable: document.querySelector('#form'),
     open() {
         // Abrir modal
         // Adicionar a class active ao modal
@@ -25,6 +26,8 @@ const Storage = {
 
 const Transaction = {
     all: Storage.get(),
+   //editableIndex: '',
+    //editableID: '',
 
     add(transaction) {
         Transaction.all.push(transaction)
@@ -34,9 +37,27 @@ const Transaction = {
 
     remove(index) {
         Transaction.all.splice(index, 1)
-
         App.reload()
     },
+
+    edit(id) {
+        const index = Transaction.all.transactions.findIndex(
+          (transactionIn) => transactionIn.id === id
+        )
+    
+        const transaction = Transaction.all.transactions[index]
+        transaction.date = transaction.date.split('/').reverse().join('-')
+    
+        Transaction.editableIndex = index
+        Transaction.editableID = id
+    
+        Modal.title.innerText = 'Editar Transação'
+        Modal.editable.setAttribute('data-editable', 'true')
+        Form.setValues(transaction)
+        Form.plotsDisabled()
+    
+        Modal.toggle('transaction')
+      },
 
     incomes() {
         // somar as entradas
@@ -88,7 +109,10 @@ const DOM = {
         <td class="${CSSclass}">${amount}</td>
         <td class="date">${transaction.date}</td>
         <td>
-            <img onclick="Transaction.remove(${index})" src="./assets/minus.svg" alt="remover transação">
+            <img onclick='Transaction.remove(${index})' src="./assets/minus.svg" alt="remover transação">
+        </td>
+        <td>
+            <i onclick='Transaction.edit('${index}')' class="fas fa-pencil-alt fa-2x"></i>
         </td>
     </tr>`
         return html
@@ -225,7 +249,6 @@ const Form = {
     }
 }
 
-
 const App = {
     init() {
 
@@ -243,6 +266,8 @@ const App = {
         App.init()
     },
 }
+
+
 // theme switcher             
 const themeSwitcher = document.getElementById("theme-switch");
 
@@ -261,9 +286,6 @@ function clickHandler() {
     totalLightbackground()
 }
 themeSwitcher.addEventListener("click", clickHandler);
-
-window.onload = checkTheme();
-window.onload = totalImg();
 
 
 function checkTheme() {
